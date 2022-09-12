@@ -1,0 +1,15 @@
+import bpy
+from animation_nodes.base_types import AnimationNode
+
+class PsdTexture(bpy.types.Node, AnimationNode):
+    bl_idname = "an_psd_texture"
+    bl_label = "PSD Texture"
+
+    def create(self):
+        self.newInput("String", "SourcePath", "source")
+        self.newInput("Object", "Target", "target")
+
+    def execute(self, source, target):
+        if source is None or target is None:
+            return
+        return source
